@@ -85,7 +85,7 @@ if (isset($_SESSION["nik"])) {
               </div>
               <div class="form-group bg-white" style="border-radius: 5px;">
                 <label>Foto :</label>
-                <input type="file" name="foto" required="required"><br>
+                <input type="file" name="foto" required><br>
                 <small style>Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</small>
               </div>
               <div class="input-group mb-3">
