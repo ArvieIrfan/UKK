@@ -66,9 +66,9 @@ if (isset($_SESSION["nik"])) {
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
-      $cek_nip = mysqli_query($koneksi, "SELECT * from masyarakat (username) where username='$user' and password='$pass' ");
+      $cek_nip = mysqli_query($koneksi, "SELECT * from masyarakat (nik, nama, username, password, telp) where username='$user' and password='$pass' ");
       if (isset($cek_nip)) {
-        $_SESSION["nik"] = $get_nip["nik"];
+        $_SESSION["nik"] = 1;
         header("location: masyarakat/index.php");
         exit;
       }

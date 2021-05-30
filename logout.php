@@ -2,4 +2,10 @@
 
 session_start();
 session_destroy();
-header("location:index.php");
+unset($_SESSION["nik"]);
+if (!isset($_SESSION["nik"])) {
+	header("location:index.php");
+}
+else {
+	var_dump($_SESSION["nik"]);
+}

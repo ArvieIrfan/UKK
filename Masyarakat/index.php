@@ -1,7 +1,7 @@
 <?php 
 session_start();
-if (isset($_SESSION["nik"])) {
-  header("location:masyarakat/");
+if (!isset($_SESSION["nik"])) {
+  header("location:../");
   exit;
  } 
 ?>
@@ -31,7 +31,7 @@ if (isset($_SESSION["nik"])) {
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-<body style="background-image: ">
+<body style="background-image: url(../img/bb.jpg); background-size: cover;">
 
   <!-- ======= Header ======= -->
   <header id="header">
@@ -87,17 +87,6 @@ if (isset($_SESSION["nik"])) {
                 <label>Foto :</label>
                 <input type="file" name="foto" required><br>
                 <small style>Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</small>
-              </div>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text" for="inputGroupSelect01">Status</label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect01" name="status">
-                  <option selected>Choose...</option>
-                  <option value="0">0</option>
-                  <option value="proses">proses</option>
-                  <option value="selesai">selesai</option>
-                </select>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
