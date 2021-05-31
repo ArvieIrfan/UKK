@@ -38,7 +38,7 @@ if (isset($_SESSION["level"])) {
 
       $cek_nip = mysqli_query($koneksi, "SELECT * from petugas (username) where username='$user' and password='$pass' ");
       if (isset($cek_nip)) {
-        $_SESSION["level"] = $get_nip["level"];
+        $_SESSION["level"] = 1;
         header("location: dashboard.php");
         exit;
       }

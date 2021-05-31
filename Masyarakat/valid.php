@@ -3,6 +3,7 @@
 $tgl = $_POST['tgl'];
 $nik = $_POST['nik'];
 $isi = $_POST['isi_laporan'];
+$id = rand();
 
 $foto = upload();
 
@@ -14,8 +15,12 @@ function upload(){
 	move_uploaded_file($tmpname, 'img/'.rand().$namafile);
 	return $namafile;	
 }
-	$koneksi = mysqli_connect("localhost","root","","lalaala");
-	$query ="INSERT into foto values('','$tgl','$nik','$isi','$foto','proses')";
+	$koneksi = mysqli_connect("localhost","root","","pekat");
+	$query ="INSERT into pengaduan values('$id','$tgl','$nik','$isi','$foto','proses')";
 	$add = mysqli_query($koneksi,$query);
-	var_dump($add);
+		if ($add) {
+		  header("location:index.php");
+		} else {
+		  echo "Error: " . $query . "<br>" . mysqli_error($koneksi);
+		}
 ?>
