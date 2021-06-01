@@ -86,7 +86,7 @@
                             <i class="ti-search"></i>
                         </a>
                         <a href="index.php">
-                            <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+                            <h2>ADMIN</h2>
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -96,7 +96,7 @@
                     <div class="navbar-container container-fluid">
                         <ul class="nav-right">
                             <li class="user-profile header-notification">
-                                <a href="auth-normal-sign-in.php">
+                                <a href="../logout.php">
                                     <!-- <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
                                     <span>John Doe</span> -->
                                     Logout
@@ -111,25 +111,18 @@
                     <nav class="pcoded-navbar">
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="pcoded-inner-navbar main-menu">
-                            <div class="pcoded-search">
-                                <span class="searchbar-toggle">  </span>
-                                <div class="pcoded-search-box ">
-                                    <input type="text" placeholder="Search">
-                                    <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
-                                </div>
-                            </div>
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="">
+                                <li class="active">
                                     <a href="index.php">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
-                                <li class="pcoded-hasmenu active pcoded-trigger">
+                                <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
+                                        <span class="pcoded-micon"><i class="ti-layout-menu-v"></i></span>
                                         <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Data</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -164,36 +157,10 @@
                                         </li>
                                     </ul>
                                 </li>
-                            </ul>
-                            <ul class="pcoded-item pcoded-left-item">
                                 <li>
                                     <a href="form-elements-component.php">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Form Components</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="bs-basic-table.php">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Basic Table</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                
-                            </ul>
-                            <ul class="pcoded-item pcoded-left-item">
-                                <li>
-                                    <a href="chart.php">
-                                        <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Pages</span>
-                                        <span class="pcoded-mcaret"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="map-google.php">
-                                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Maps</span>
+                                        <span class="pcoded-micon"><i class="ti-printer"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Cetak</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
@@ -238,12 +205,8 @@
                                 <!-- Page-body start -->
                                 <div class="page-body">
                                     <!-- Basic table card start -->
+                                            <a class="btn btn-primary btn-outline-primary text-primary"><i class="icofont icofont-user-alt-3"></i>Tambah Petugas</a>
                                     <div class="card">
-                                        <div class="card-header">
-                                            <h5>Basic table</h5>
-                                            <span>use class <code>table</code> inside table element</span>
-                                            <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li>        <li><i class="icofont icofont-error close-card"></i></li>    </ul></div>
-                                        </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
                                                 <table class="table table-hover">
@@ -256,8 +219,10 @@
                                                             <th>Password</th>
                                                             <th>No Telpon</th>
                                                             <th>Level</th>
+                                                            <th>Aksi</th>
                                                         </tr>
                                                     </thead>
+
                                                     <?php 
         require_once '../koneksi.php';
         $no = 1;
@@ -272,8 +237,11 @@
                     <td><?php echo $d['username']; ?></td>
                     <td><?php echo $d['password']; ?></td>
                     <td><?php echo $d['telp']; ?></td>
-
                     <td><?php echo $d['level']; ?></td>
+                    <td>
+                        <a class="mr-2" href="edit.php?id=<?php echo $d['id_petugas']; ?>"><i class="ti-pencil-alt">Edit</i></a>
+                        <a href="hapus.php?id=<?php echo $d['id_petugas']; ?>"><i class="ti-eraser">Hapus</i></a>
+                    </td>
                 </tr>
             </tbody>
             <?php 

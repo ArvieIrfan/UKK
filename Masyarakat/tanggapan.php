@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION["nik"])) {
   header("location:../");
   exit;
- }
+ } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ if (!isset($_SESSION["nik"])) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Data Pengaduan</title>
+  <title>Hasil Tanggapan</title>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -29,7 +29,6 @@ if (!isset($_SESSION["nik"])) {
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome.min.css"/>
 </head>
 
 <body>
@@ -41,7 +40,7 @@ if (!isset($_SESSION["nik"])) {
       <button type="button" class="nav-toggle"><i class="bx bx-menu"></i></button>
       <nav class="nav-menu">
         <ul>
-          <li class="active"><a href="#header">Home</a></li>
+          <li class="active"><a href="index.php">Home</a></li>
           <li><a href="pengaduan.php">Pengaduan</a></li>
           <li><a href="../logout.php">Logout</a></li>
         </ul>
@@ -55,48 +54,44 @@ if (!isset($_SESSION["nik"])) {
       <div class="container">
 
         <div class="section-title">
-          <h2>Pengaduan</h2>
+          <h2>Hasil Tanggapan</h2>
         </div>
 
         <div class="row justify-content-center">
-          <table class="table">
-              <thead>
-                  <tr align="middle">
-                      <th>#</th>
-                      <th>ID Pengaduan</th>
-                      <th>Tanggal Pengaduan</th>
-                      <th>NIK</th>
-                      <th>Isi Laporan</th>
-                      <th>Foto</th>
-                      <th>Status</th>
-                      <th>Aksi</th>
-                  </tr>
-              </thead>
-              <?php 
-              require_once '../koneksi.php';
-              $no = 1;
-              $data = mysqli_query($koneksi,"select * from pengaduan");
-              while($d = mysqli_fetch_array($data)){
-                  ?>
-                  <tbody>
-                      <tr>
-                          <td><?php echo $no++; ?></td>
-                          <td><?php echo $d['id_pengaduan']; ?></td>
-                          <td><?php echo $d['tgl_pengaduan']; ?></td>
-                          <td><?php echo $d['nik']; ?></td>
-                          <td><?php echo $d['isi_laporan']; ?></td>
-                          <td width="100"><?php echo $d['foto']; ?></td>
-                          <td><?php echo $d['status']; ?></td>
-                          <td>
-                            <a class="mr-2" href="info.php?id=<?php echo $d['id_pengaduan']; ?>"><i class="ti-info">Detail</i></a>
-                            <a href="tanggapan.php?id=<?php echo $d['id_pengaduan']; ?>"><i class="ti-eye">Tanggapan</i></a>
-                        </td>
-                      </tr>
-                  </tbody>
-                  <?php 
-              }
-              ?>
-            </table>
+        	<?php
+        	require_once '../koneksi.php';
+        	$sql = mysqli_query($koneksi,"SELECT * from pengaduan, tanggapan where tanggapan.id_pengaduan = '$_GET[id]' and tanggapan.id_pengaduan=pengaduan.id_pengaduan");
+          $cek = mysqli_num_rows($sql);
+          if ($cek < 1) {
+            echo "<font color='red'>Mohon bersabar, pengaduan belum ditanggapi</font>";
+          }
+          else {
+        	$d = mysqli_fetch_array($sql);
+        	if ($sql) {
+			?>
+          <div class="col-lg-5 col-md-7">
+              <div class="form-group">
+              	<label>Tanggal Tanggapan</label>
+                <input type="date" name="tgl" class="form-control" id="name" placeholder="tanggal"
+                  data-rule="minlen:4" data-msg="Please enter at least 10 chars" value="<?= $d['tgl_pengaduan']; ?>" readonly>
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+              	<label>Isi Laporan</label>
+                <textarea class="form-control" name="isi_laporan" rows="5" data-rule="required" readonly><?= $d['isi_laporan']; ?></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <label>Isi Tanggapan</label>
+                <textarea class="form-control" name="isi_laporan" rows="5" data-rule="required" readonly><?= $d['tanggapan']; ?></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="text-center"><a href="index.php" class="btn btn-primary mt-5" type="submit">Kembali</a></div>
+          </div>
+          <?php
+	      }
+      }
+	      ?>
         </div>
 
       </div>

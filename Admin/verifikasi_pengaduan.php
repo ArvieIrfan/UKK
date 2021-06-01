@@ -1,3 +1,15 @@
+<?php 
+session_start();
+if (!isset($_SESSION["level"])) {
+  header("location:../");
+  exit;
+ }
+if ($_SESSION["level"] != "admin") {
+  die("What would you do ha??");
+  header("location:index.php");
+  exit;
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,7 +98,7 @@
                             <i class="ti-search"></i>
                         </a>
                         <a href="index.php">
-                            <h2>ADMIN</h2>
+                          <h2>ADMIN</h2>
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>
@@ -111,19 +123,20 @@
                     <nav class="pcoded-navbar">
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="pcoded-inner-navbar main-menu">
-                            <div class="pcoded-search">
-                                <span class="searchbar-toggle">  </span>
-                                <div class="pcoded-search-box ">
-                                    <input type="text" placeholder="Search">
-                                    <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
-                                </div>
-                            </div>
+                            
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="active">
+                                <li class="">
                                     <a href="index.php">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="verifikasi_pengaduan.php">
+                                        <span class="pcoded-micon"><i class="ti-printer"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Verifikasi Pengaduan</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
@@ -155,8 +168,8 @@
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
-                                        <li class="active">
-                                            <a href="">
+                                        <li class="">
+                                            <a href="data-tanggapan.php">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Data Tanggapan</span>
                                                 <span class="pcoded-mcaret"></span>
@@ -164,14 +177,42 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="form-elements-component.php">
-                                        <span class="pcoded-micon"><i class="ti-printer"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Cetak</span>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layout-menu-v"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Cetak</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
-                                </li>
-                            </ul>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="data-petugas.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Petugas</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="data-masyarakat.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Data Masyarakat</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="data-pengaduan.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Pengaduan</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="data-tanggapan.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Data Tanggapan</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                         </div>
                     </nav>
                     <div class="pcoded-content">
@@ -224,35 +265,38 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>ID Tanggapan</th>
                                                             <th>ID Pengaduan</th>
-                                                            <th>Tanggal Tanggapan</th>
-                                                            <th>Tanggapan</th>
-                                                            <th>ID Petugas</th>
+                                                            <th>Tanggal Pengaduan</th>
+                                                            <th>NIK</th>
+                                                            <th>Isi Laporan</th>
+                                                            <th>Foto</th>
+                                                            <th>Status</th>
                                                             <th>Aksi</th>
                                                         </tr>
                                                     </thead>
                                                     <?php 
         require_once '../koneksi.php';
         $no = 1;
-        $data = mysqli_query($koneksi,"select * from tanggapan");
+        $data = mysqli_query($koneksi,"select * from pengaduan where status='proses'");
         while($d = mysqli_fetch_array($data)){
             ?>
             <tbody>
                 <tr>
                     <td><?php echo $no++; ?></td>
-                    <td><?php echo $d['id_tanggapan']; ?></td>
                     <td><?php echo $d['id_pengaduan']; ?></td>
-                    <td><?php echo $d['tgl_tanggapan']; ?></td>
-                    <td><?php echo $d['tanggapan']; ?></td>
-                    <td><?php echo $d['id_petugas']; ?></td>
+                    <td><?php echo $d['tgl_pengaduan']; ?></td>
+                    <td><?php echo $d['nik']; ?></td>
+                    <td><?php echo $d['isi_laporan']; ?></td>
                     <td>
-                        <a class="mr-2" href="edit.php?id=<?php echo $d['id_tanggapan']; ?>"><i class="ti-pencil-alt">Edit</i></a>
-                        <a href="hapus.php?id=<?php echo $d['id_tanggapan']; ?>"><i class="ti-eraser">Hapus</i></a>
+                    <img width="100" height="100" src="../img/<?= $d['foto']; ?>">
+                    <td><?php echo $d['status']; ?></td>
+                    <td>
+                        <a class="mr-2" href="detail.php?id=<?php echo $d['id_pengaduan']; ?>"><i class="ti-info">Detail</i></a>
+                        <a href="verifikasi.php?id=<?php echo $d['id_pengaduan']; ?>"><i class="ti-check">Verifikasi</i></a>
                     </td>
                 </tr>
             </tbody>
-            <?php
+            <?php 
         }
         ?>
                                                 </table>

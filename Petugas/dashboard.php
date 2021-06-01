@@ -1,11 +1,14 @@
 <?php 
 session_start();
 if (!isset($_SESSION["level"])) {
+  header("location:../");
+  exit;
+ }
+if ($_SESSION["level"] != "petugas") {
+  die("What would you do ha??");
   header("location:index.php");
   exit;
- } 
-
- $id_petugas = $_SESSION["id_petugas"];
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +34,7 @@ if (!isset($_SESSION["level"])) {
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome.min.css"/>
 </head>
 
 <body>
@@ -70,12 +74,13 @@ if (!isset($_SESSION["level"])) {
                       <th>Isi Laporan</th>
                       <th>Foto</th>
                       <th>Status</th>
+                      <th>Aksi</th>
                   </tr>
               </thead>
               <?php 
               require_once '../koneksi.php';
               $no = 1;
-              $data = mysqli_query($koneksi,"select * from pengaduan");
+              $data = mysqli_query($koneksi,"select * from pengaduan where status='0'");
               while($d = mysqli_fetch_array($data)){
                   ?>
                   <tbody>
@@ -87,6 +92,9 @@ if (!isset($_SESSION["level"])) {
                           <td><?php echo $d['isi_laporan']; ?></td>
                           <td width="100"><?php echo $d['foto']; ?></td>
                           <td><?php echo $d['status']; ?></td>
+                          <td>
+                            <a class="mr-2" href="info.php?id=<?php echo $d['id_pengaduan']; ?>"><i class="ti-info">Detail</i></a>
+                        </td>
                       </tr>
                   </tbody>
                   <?php 
