@@ -238,7 +238,6 @@
                                                             <th>Username</th>
                                                             <th>Password</th>
                                                             <th>No Telpon</th>
-                                                            <th>Aksi</th>
                                                         </tr>
                                                     </thead>
                                                     <?php 
@@ -255,9 +254,6 @@
                     <td><?php echo $d['username']; ?></td>
                     <td><?php echo $d['password']; ?></td>
                     <td><?php echo $d['telp']; ?></td>
-                    <td>
-                        <a href="hapus_masyarakat.php?id=<?php echo $d['nik']; ?>"><i class="ti-eraser">Hapus</i></a>
-                    </td>
                 </tr>
             </tbody>
             <?php 
