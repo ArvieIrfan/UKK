@@ -205,7 +205,7 @@
                                 <!-- Page-body start -->
                                 <div class="page-body">
                                     <!-- Basic table card start -->
-                                            <a class="btn btn-primary btn-outline-primary text-primary"><i class="icofont icofont-user-alt-3"></i>Tambah Petugas</a>
+                                            <a href="tambah_petugas.php" class="btn btn-primary btn-outline-primary text-primary"><i class="icofont icofont-user-alt-3"></i>Tambah Petugas</a>
                                     <div class="card">
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">

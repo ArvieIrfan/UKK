@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION["nik"])) {
+if (!isset($_SESSION["level"])) {
   header("location: ../");
 }
  $nik = $_SESSION["nik"];
@@ -29,57 +29,46 @@ if (!isset($_SESSION["nik"])) {
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.2.css" rel="stylesheet">
 </head>
 
 <body>
-
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container-fluid">
-
-      <button type="button" class="nav-toggle"><i class="bx bx-menu"></i></button>
-      <nav class="nav-menu">
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li class="active"><a href="">Pengaduan</a></li>
-          <li><a href="../logout.php">Logout</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </header>
 
   <main id="main">
     <section id="contact" class="contact section-bg">
       <div class="container">
 
-        <div class="section-title">
-          <h2>Pengaduan</h2>
+        <div class="section-title mt-1">
+          <h2>Tambah Petugas</h2>
         </div>
 
         <div class="row justify-content-center">
 
           <div class="col-lg-5 col-md-7">
-            <form action="valid.php" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+            <form action="simpan_petugas.php" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
               <div class="form-group">
-                <input type="date" name="tgl" class="form-control" id="name" placeholder="tanggal"
-                  data-rule="minlen:4" data-msg="Please enter at least 10 chars" value="<?php echo $tgl ?>" readonly>
+                <input type="text" class="form-control" name="nama_petugas" id="subject" placeholder="Nama Petugas">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="nik" id="subject" value="<?= $nik; ?>" readonly>
+                <input type="text" class="form-control" name="username" id="subject" placeholder="Username">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="isi_laporan" rows="5" data-rule="required"
-                  data-msg="Please write something for us" placeholder="Beri tahu kami keluhan anda!"></textarea>
+                <input type="text" class="form-control" name="password" id="subject" placeholder="Password">
                 <div class="validate"></div>
               </div>
-              <div class="form-group bg-white" style="border-radius: 5px;">
-                <label>Foto :</label>
-                <input type="file" name="foto" required><br>
-                <small style>Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</small>
+              <div class="form-group">
+                <input type="text" class="form-control" name="telp" id="subject" placeholder="telp">
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="level">Level
+                  <option>==pilih==</option>
+                  <option value="admin">Admin</option>
+                  <option value="petugas">Petugas</option>
+                </select>
+                <div class="validate"></div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
