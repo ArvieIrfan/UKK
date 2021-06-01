@@ -173,7 +173,7 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="cetak_petugas.php">
+                                            <a onclick="frames['frame'].print();">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Petugas</span>
                                                 <span class="pcoded-mcaret"></span>
@@ -217,7 +217,15 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h3>Data Masyarakat</h3>
-                                            <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li>        <li><i class="icofont icofont-error close-card"></i></li>    </ul></div>
+                                            <div class="card-header-right">    
+                                                <ul class="list-unstyled card-option">        
+                                                    <li><i class="icofont icofont-simple-left "></i></li>        
+                                                    <li><i class="icofont icofont-maximize full-card"></i></li>        
+                                                    <li><i class="icofont icofont-minus minimize-card"></i></li>        
+                                                    <li><i class="icofont icofont-refresh reload-card"></i></li>        
+                                                    <li><i class="icofont icofont-error close-card"></i></li>    
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
@@ -248,8 +256,7 @@
                     <td><?php echo $d['password']; ?></td>
                     <td><?php echo $d['telp']; ?></td>
                     <td>
-                        <a class="mr-2" href="edit.php?id=<?php echo $d['nik']; ?>"><i class="ti-pencil-alt">Info</i></a>
-                        <a href="hapus.php?id=<?php echo $d['nik']; ?>"><i class="ti-eraser">Hapus</i></a>
+                        <a href="hapus_masyarakat.php?id=<?php echo $d['nik']; ?>"><i class="ti-eraser">Hapus</i></a>
                     </td>
                 </tr>
             </tbody>
@@ -263,7 +270,7 @@
 
                                 </div>
                                 <div id="styleSelector">
-                                    <p>wjidajiwjdo</p>
+                                    <iframe src="cetak_petugas.php" name="frame" width="100%" height="400" frameborder="0"></iframe>
                                 </div>
                             </div>
                         </div>

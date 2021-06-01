@@ -82,7 +82,7 @@
                                         <h2 align="center" class="m-5">Laporan UKK Cetak Petugas</h2>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-hover">
+                                                <table class="table table-hover" width="100%">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
@@ -191,7 +191,7 @@
 <script type="text/javascript">
     function dbl(){
         window.print();
-        window.location="data-petugas.php";
+        window.location="cetak_masyarakat.php";
     }
 </script>
 

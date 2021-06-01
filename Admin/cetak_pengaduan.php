@@ -72,6 +72,7 @@
     </div>
     <!-- Pre-loader end -->
         <div id="pcoded" class="pcoded">
+            <div class="container">
             <div class="pcoded-overlay-box"></div>
                 <div class="pcoded-container navbar-wrapper">
                     <div class="pcoded-main-container">
@@ -82,7 +83,7 @@
                                         <h2 align="center" class="m-5">Laporan UKK Cetak Petugas</h2>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table table-hover">
+                                                <table class="table table-hover" width="100%;">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
@@ -126,6 +127,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         <!-- Warning Section Starts -->
         <!-- Older IE warning message -->
     <!--[if lt IE 9]>
@@ -194,7 +196,7 @@
 <script type="text/javascript">
     function dbl(){
         window.print();
-        window.location="data-petugas.php";
+        window.location="data-pengaduan.php";
     }
 </script>
 
