@@ -1,9 +1,10 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION["nik"])) {
-  header("location:../");
-  exit;
- } 
+  header("location: ../");
+}
+ $nik = $_SESSION["nik"];
+ $tgl = date("Y-m-d");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,11 +71,11 @@ if (!isset($_SESSION["nik"])) {
             <form action="valid.php" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
               <div class="form-group">
                 <input type="date" name="tgl" class="form-control" id="name" placeholder="tanggal"
-                  data-rule="minlen:4" data-msg="Please enter at least 10 chars" />
+                  data-rule="minlen:4" data-msg="Please enter at least 10 chars" value="<?php echo $tgl ?>" readonly>
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="nik" id="subject" readonly>
+                <input type="text" class="form-control" name="nik" id="subject" value="<?= $nik; ?>" readonly>
                 <div class="validate"></div>
               </div>
               <div class="form-group">

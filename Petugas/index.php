@@ -36,9 +36,11 @@ if (isset($_SESSION["level"])) {
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
-      $cek_nip = mysqli_query($koneksi, "SELECT * from petugas (username) where username='$user' and password='$pass' ");
-      if (isset($cek_nip)) {
-        $_SESSION["level"] = 1;
+      $cek_nip = mysqli_query($koneksi, "SELECT * from petugas where username='$user' and password='$pass' ");
+      $get_nip = mysqli_fetch_array($cek_nip);
+      if (isset($get_nip)) {
+        $_SESSION["level"] = $get_nip["level"];
+        $_SESSION["id_petugas"] = $get_nip["id_petugas"];
         header("location: dashboard.php");
         exit;
       }

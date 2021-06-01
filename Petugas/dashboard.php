@@ -4,6 +4,8 @@ if (!isset($_SESSION["level"])) {
   header("location:index.php");
   exit;
  } 
+
+ $id_petugas = $_SESSION["id_petugas"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,13 +64,12 @@ if (!isset($_SESSION["level"])) {
           <div class="col-lg-5 col-md-7">
             <form action="valid.php" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
               <div class="form-group">
-                <input type="number" class="form-control" name="id_ngadu" id="subject" placeholder="Id pengaduan"
-                  data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="number" class="form-control" name="id_ngadu" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" value="<?php echo $id_petugas; ?>">
                 <div class="validate"></div>
               </div>
               <div class="form-group">
                 <input type="date" name="tgl" class="form-control" id="name" placeholder="tanggal Tanggapan"
-                  data-rule="minlen:4" data-msg="Please enter at least 10 chars" />
+                  data-rule="minlen:4" data-msg="Please enter at least 10 chars" value="<?php echo date("Y-m-d"); ?>" />
                 <div class="validate"></div>
               </div>
               <div class="form-group">
@@ -77,8 +78,7 @@ if (!isset($_SESSION["level"])) {
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="id_petugas" rows="5" data-rule="required"
-                  data-msg="Please write something for us" placeholder="id petugas"></textarea>
+                <input type="number" class="form-control" name="id_ngadu" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" value="<?php echo $id_petugas; ?>">
                 <div class="validate"></div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
