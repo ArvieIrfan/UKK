@@ -74,8 +74,7 @@ if (!isset($_SESSION["nik"])) {
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="nik" id="subject" placeholder="nik"
-                  data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="text" class="form-control" name="nik" id="subject" readonly>
                 <div class="validate"></div>
               </div>
               <div class="form-group">
