@@ -86,30 +86,30 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>ID Petugas</th>
-                                                            <th>Nama Petugas</th>
-                                                            <th>Username</th>
-                                                            <th>Password</th>
-                                                            <th>No Telpon</th>
-                                                            <th>Level</th>
+                                                            <th>ID Pengaduan</th>
+                                                            <th>Tanggal Pengaduan</th>
+                                                            <th>NIK</th>
+                                                            <th>Isi Laporan</th>
+                                                            <th>Foto</th>
+                                                            <th>Status</th>
                                                         </tr>
                                                     </thead>
-
                                                     <?php 
         require_once '../koneksi.php';
         $no = 1;
-        $data = mysqli_query($koneksi,"select * from petugas");
+        $data = mysqli_query($koneksi,"select * from pengaduan");
         while($d = mysqli_fetch_array($data)){
             ?>
             <tbody>
                 <tr>
                     <td><?php echo $no++; ?></td>
-                    <td><?php echo $d['id_petugas']; ?></td>
-                    <td><?php echo $d['nama_petugas']; ?></td>
-                    <td><?php echo $d['username']; ?></td>
-                    <td><?php echo $d['password']; ?></td>
-                    <td><?php echo $d['telp']; ?></td>
-                    <td><?php echo $d['level']; ?></td>
+                    <td><?php echo $d['id_pengaduan']; ?></td>
+                    <td><?php echo $d['tgl_pengaduan']; ?></td>
+                    <td><?php echo $d['nik']; ?></td>
+                    <td><?php echo $d['isi_laporan']; ?></td>
+                    <td>
+                    <img width="100" height="100" src="../img/<?= $d['foto']; ?>">
+                    <td><?php echo $d['status']; ?></td>
                 </tr>
             </tbody>
             <?php 

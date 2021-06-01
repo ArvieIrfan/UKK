@@ -86,30 +86,27 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>ID Petugas</th>
-                                                            <th>Nama Petugas</th>
+                                                            <th>NIK</th>
+                                                            <th>Nama</th>
                                                             <th>Username</th>
                                                             <th>Password</th>
                                                             <th>No Telpon</th>
-                                                            <th>Level</th>
                                                         </tr>
                                                     </thead>
-
                                                     <?php 
         require_once '../koneksi.php';
         $no = 1;
-        $data = mysqli_query($koneksi,"select * from petugas");
+        $data = mysqli_query($koneksi,"select * from masyarakat");
         while($d = mysqli_fetch_array($data)){
             ?>
             <tbody>
                 <tr>
                     <td><?php echo $no++; ?></td>
-                    <td><?php echo $d['id_petugas']; ?></td>
-                    <td><?php echo $d['nama_petugas']; ?></td>
+                    <td><?php echo $d['nik']; ?></td>
+                    <td><?php echo $d['nama']; ?></td>
                     <td><?php echo $d['username']; ?></td>
                     <td><?php echo $d['password']; ?></td>
                     <td><?php echo $d['telp']; ?></td>
-                    <td><?php echo $d['level']; ?></td>
                 </tr>
             </tbody>
             <?php 

@@ -179,21 +179,21 @@
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="data-masyarakat.php">
+                                            <a href="cetak_masyarakat.php">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Data Masyarakat</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="data-pengaduan.php">
+                                            <a href="cetak_pengaduan.php">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Pengaduan</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="data-tanggapan.php">
+                                            <a href="cetak_tanggapan.php">
                                                 <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Data Tanggapan</span>
                                                 <span class="pcoded-mcaret"></span>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Cetak Laporan</title>
+    <title>GURU Able - Free Lite Admin Template </title>
     <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -86,33 +86,30 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
+                                                            <th>ID Tanggapan</th>
+                                                            <th>ID Pengaduan</th>
+                                                            <th>Tanggal Tanggapan</th>
+                                                            <th>Tanggapan</th>
                                                             <th>ID Petugas</th>
-                                                            <th>Nama Petugas</th>
-                                                            <th>Username</th>
-                                                            <th>Password</th>
-                                                            <th>No Telpon</th>
-                                                            <th>Level</th>
                                                         </tr>
                                                     </thead>
-
                                                     <?php 
         require_once '../koneksi.php';
         $no = 1;
-        $data = mysqli_query($koneksi,"select * from petugas");
+        $data = mysqli_query($koneksi,"select * from tanggapan");
         while($d = mysqli_fetch_array($data)){
             ?>
             <tbody>
                 <tr>
                     <td><?php echo $no++; ?></td>
+                    <td><?php echo $d['id_tanggapan']; ?></td>
+                    <td><?php echo $d['id_pengaduan']; ?></td>
+                    <td><?php echo $d['tgl_tanggapan']; ?></td>
+                    <td><?php echo $d['tanggapan']; ?></td>
                     <td><?php echo $d['id_petugas']; ?></td>
-                    <td><?php echo $d['nama_petugas']; ?></td>
-                    <td><?php echo $d['username']; ?></td>
-                    <td><?php echo $d['password']; ?></td>
-                    <td><?php echo $d['telp']; ?></td>
-                    <td><?php echo $d['level']; ?></td>
                 </tr>
             </tbody>
-            <?php 
+            <?php
         }
         ?>
                                                 </table>
