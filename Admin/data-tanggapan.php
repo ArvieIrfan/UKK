@@ -111,19 +111,20 @@
                     <nav class="pcoded-navbar">
                         <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                         <div class="pcoded-inner-navbar main-menu">
-                            <div class="pcoded-search">
-                                <span class="searchbar-toggle">  </span>
-                                <div class="pcoded-search-box ">
-                                    <input type="text" placeholder="Search">
-                                    <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
-                                </div>
-                            </div>
+                            
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Layout</div>
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="active">
                                     <a href="index.php">
                                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="verifikasi_pengaduan.php">
+                                        <span class="pcoded-micon"><i class="ti-printer"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Verifikasi Pengaduan</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
@@ -164,12 +165,42 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="form-elements-component.php">
-                                        <span class="pcoded-micon"><i class="ti-printer"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Cetak</span>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layout-menu-v"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Cetak</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="data-petugas.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Petugas</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="data-masyarakat.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Data Masyarakat</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="data-pengaduan.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Pengaduan</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="data-tanggapan.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Data Tanggapan</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -178,44 +209,11 @@
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
-
-                                    <div class="page-header card">
-                                        <div class="row align-items-end">
-                                            <div class="col-lg-8">
-                                                <div class="page-header-title">
-                                                    <i class="icofont icofont-table bg-c-blue"></i>
-                                                    <div class="d-inline">
-                                                        <h4>Bootstrap Basic Tables</h4>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="page-header-breadcrumb">
-                                                   <ul class="breadcrumb-title">
-                                                    <li class="breadcrumb-item">
-                                                        <a href="index.php">
-                                                            <i class="icofont icofont-home"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a>
-                                                    </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Basic Table</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Page-header end -->
-                                
-                                <!-- Page-body start -->
                                 <div class="page-body">
                                     <!-- Basic table card start -->
                                     <div class="card">
                                         <div class="card-header">
-                                            <h5>Basic table</h5>
-                                            <span>use class <code>table</code> inside table element</span>
+                                            <h3>Data Tanggapan</h3>
                                             <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li>        <li><i class="icofont icofont-error close-card"></i></li>    </ul></div>
                                         </div>
                                         <div class="card-block table-border-style">

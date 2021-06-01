@@ -181,7 +181,7 @@ if ($_SESSION["level"] != "admin") {
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="ti-layout-menu-v"></i></span>
-                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Data</span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Cetak</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                     <ul class="pcoded-submenu">

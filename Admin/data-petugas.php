@@ -120,6 +120,13 @@
                                         <span class="pcoded-mcaret"></span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="form-elements-component.php">
+                                        <span class="pcoded-micon"><i class="ti-printer"></i><b>FC</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Verifikasi Pengaduan</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="ti-layout-menu-v"></i></span>
@@ -157,12 +164,42 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
-                                    <a href="form-elements-component.php">
-                                        <span class="pcoded-micon"><i class="ti-printer"></i><b>FC</b></span>
-                                        <span class="pcoded-mtext" data-i18n="nav.form-components.main">Cetak</span>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-layout-menu-v"></i></span>
+                                        <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Cetak</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="active">
+                                            <a href="cetak_petugas.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Petugas</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="data-masyarakat.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Data Masyarakat</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="data-pengaduan.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Data Pengaduan</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="data-tanggapan.php">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Data Tanggapan</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>
@@ -171,42 +208,14 @@
                         <div class="pcoded-inner-content">
                             <div class="main-body">
                                 <div class="page-wrapper">
-
-                                    <div class="page-header card">
-                                        <div class="row align-items-end">
-                                            <div class="col-lg-8">
-                                                <div class="page-header-title">
-                                                    <i class="icofont icofont-table bg-c-blue"></i>
-                                                    <div class="d-inline">
-                                                        <h4>Bootstrap Basic Tables</h4>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="page-header-breadcrumb">
-                                                   <ul class="breadcrumb-title">
-                                                    <li class="breadcrumb-item">
-                                                        <a href="index.php">
-                                                            <i class="icofont icofont-home"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Bootstrap Table</a>
-                                                    </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Basic Table</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Page-header end -->
-                                
-                                <!-- Page-body start -->
                                 <div class="page-body">
                                     <!-- Basic table card start -->
                                             <a href="tambah_petugas.php" class="btn btn-primary btn-outline-primary text-primary"><i class="icofont icofont-user-alt-3"></i>Tambah Petugas</a>
                                     <div class="card">
+                                        <div class="card-header">
+                                            <h3>Data Petugas</h3>
+                                            <div class="card-header-right">    <ul class="list-unstyled card-option">        <li><i class="icofont icofont-simple-left "></i></li>        <li><i class="icofont icofont-maximize full-card"></i></li>        <li><i class="icofont icofont-minus minimize-card"></i></li>        <li><i class="icofont icofont-refresh reload-card"></i></li>        <li><i class="icofont icofont-error close-card"></i></li>    </ul></div>
+                                        </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
                                                 <table class="table table-hover">
@@ -239,8 +248,8 @@
                     <td><?php echo $d['telp']; ?></td>
                     <td><?php echo $d['level']; ?></td>
                     <td>
-                        <a class="mr-2" href="edit.php?id=<?php echo $d['id_petugas']; ?>"><i class="ti-pencil-alt">Edit</i></a>
-                        <a href="hapus.php?id=<?php echo $d['id_petugas']; ?>"><i class="ti-eraser">Hapus</i></a>
+                        <a class="mr-2" href="edit_petugas.php?id=<?php echo $d['id_petugas']; ?>"><i class="ti-pencil-alt">Edit</i></a>
+                        <a href="hapus_petugas.php?id=<?php echo $d['id_petugas']; ?>"><i class="ti-eraser" onclick="return confirm('Anda ingin benar benar menghapus data ini?');">Hapus</i></a>
                     </td>
                 </tr>
             </tbody>
