@@ -4,7 +4,7 @@ require_once '../koneksi.php';
 
 $id = $_GET['id'];
 
-$query = mysqli_query($koneksi, "DELETE from pengaduan where id_petugas='$id'");
+$query = mysqli_query($koneksi, "DELETE from pengaduan where id_pengaduan='$id'");
 
 if ($query) {
 	?>
