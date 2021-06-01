@@ -3,7 +3,6 @@ session_start();
 if (!isset($_SESSION["level"])) {
   header("location: ../");
 }
- $nik = $_SESSION["nik"];
  $tgl = date("Y-m-d");
 ?>
 <!DOCTYPE html>
