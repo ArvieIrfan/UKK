@@ -121,7 +121,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="form-elements-component.php">
+                                    <a href="verifikasi_pengaduan.php">
                                         <span class="pcoded-micon"><i class="ti-printer"></i><b>FC</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.form-components.main">Verifikasi Pengaduan</span>
                                         <span class="pcoded-mcaret"></span>
