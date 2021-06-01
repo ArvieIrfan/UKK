@@ -47,7 +47,6 @@ if ($_SESSION["level"] != "petugas") {
       <nav class="nav-menu">
         <ul>
           <li class="active"><a href="#header">Home</a></li>
-          <li><a href="#contact">Contact Us</a></li>
           <li><a href="../logout.php">Logout</a></li>
         </ul>
       </nav>
