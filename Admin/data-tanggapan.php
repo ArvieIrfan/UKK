@@ -246,7 +246,7 @@
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table" width="1000px">
+                                                <table class="table table-hover">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>

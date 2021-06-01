@@ -11,10 +11,11 @@ function upload(){
 
 	$namafile = $_FILES['foto']['name'];
 	$tmpname = $_FILES['foto']['tmp_name'];
-
-	move_uploaded_file($tmpname, 'img/'.rand().$namafile);
+	move_uploaded_file($tmpname, '../img/'.rand().'_'.$namafile);
 	return $namafile;	
 }
+
+	$foto = rand().'_'.$foto;
 	$koneksi = mysqli_connect("localhost","root","","pekat");
 	$query ="INSERT into pengaduan values('$id','$tgl','$nik','$isi','$foto','proses')";
 	$add = mysqli_query($koneksi,$query);

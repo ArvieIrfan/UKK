@@ -246,7 +246,7 @@
                                         </div>
                                         <div class="card-block table-border-style">
                                             <div class="table-responsive">
-                                                <table class="table">
+                                                <table class="table table-hover">
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
@@ -271,7 +271,8 @@
                     <td><?php echo $d['tgl_pengaduan']; ?></td>
                     <td><?php echo $d['nik']; ?></td>
                     <td><?php echo $d['isi_laporan']; ?></td>
-                    <td width="100"><?php echo $d['foto']; ?></td>
+                    <td>
+                    <img width="100" height="100" src="../img/<?= $d['foto']; ?>">
                     <td><?php echo $d['status']; ?></td>
                 </tr>
             </tbody>

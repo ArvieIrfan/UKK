@@ -56,43 +56,35 @@ if (!isset($_SESSION["level"])) {
       <div class="container">
 
         <div class="section-title">
-          <h2>Tanggapan</h2>
+          <h2>Pengaduan</h2>
         </div>
 
         <div class="row justify-content-center">
-          <table class="table">
-              <thead>
-                  <tr>
-                      <th>#</th>
-                      <th>ID Pengaduan</th>
-                      <th>Tanggal Pengaduan</th>
-                      <th>NIK</th>
-                      <th>Isi Laporan</th>
-                      <th>Foto</th>
-                      <th>Status</th>
-                  </tr>
-              </thead>
-              <?php 
-              require_once '../koneksi.php';
-              $no = 1;
-              $data = mysqli_query($koneksi,"select * from pengaduan");
-              while($d = mysqli_fetch_array($data)){
-                  ?>
-                  <tbody>
-                      <tr>
-                          <td><?php echo $no++; ?></td>
-                          <td><?php echo $d['id_pengaduan']; ?></td>
-                          <td><?php echo $d['tgl_pengaduan']; ?></td>
-                          <td><?php echo $d['nik']; ?></td>
-                          <td><?php echo $d['isi_laporan']; ?></td>
-                          <td width="100"><?php echo $d['foto']; ?></td>
-                          <td><?php echo $d['status']; ?></td>
-                      </tr>
-                  </tbody>
-                  <?php 
-              }
-              ?>
-            </table>
+
+          <div class="col-lg-5 col-md-7">
+            <form action="valid.php" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+              <div class="form-group">
+                <input type="number" class="form-control" name="id_ngadu" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" value="<?php echo $id_petugas; ?>">
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="date" name="tgl" class="form-control" id="name" placeholder="tanggal Tanggapan"
+                  data-rule="minlen:4" data-msg="Please enter at least 10 chars" value="<?php echo date("Y-m-d"); ?>" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="tanggapan" rows="5" data-rule="required"
+                  data-msg="Please write something for us" placeholder="Beri tanggapan anda!"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="number" class="form-control" name="id_ngadu" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" value="<?php echo $id_petugas; ?>">
+                <div class="validate"></div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
         </div>
 
       </div>
